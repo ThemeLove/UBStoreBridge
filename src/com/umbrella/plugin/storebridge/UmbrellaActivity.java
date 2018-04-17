@@ -1,15 +1,17 @@
 package com.umbrella.plugin.storebridge;
 
 import com.umbrella.game.ubsdk.UBSDK;
-import com.umbrella.game.ubsdk.bean.UBUserInfo;
 import com.umbrella.game.ubsdk.callback.UBInitCallback;
 import com.umbrella.game.ubsdk.callback.UBSwitchAccountCallback;
+import com.umbrella.game.ubsdk.plugintype.user.UBUserInfo;
 import com.umbrella.game.ubsdk.utils.UBLogUtil;
 import com.unity3d.player.UnityPlayerActivity;
 
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 /**
  * author:qingshanliao
@@ -23,6 +25,8 @@ public class UmbrellaActivity extends UnityPlayerActivity{
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //      step1 :setListener
         setListener();
 //      step2:init

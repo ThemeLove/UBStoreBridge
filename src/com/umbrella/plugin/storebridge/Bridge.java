@@ -1,18 +1,17 @@
 package com.umbrella.plugin.storebridge;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.umbrella.game.ubsdk.UBSDK;
-import com.umbrella.game.ubsdk.bean.UBOrderInfo;
-import com.umbrella.game.ubsdk.bean.UBRoleInfo;
-import com.umbrella.game.ubsdk.bean.UBUserInfo;
 import com.umbrella.game.ubsdk.callback.UBExitCallback;
 import com.umbrella.game.ubsdk.callback.UBGamePauseCallback;
 import com.umbrella.game.ubsdk.callback.UBLoginCallback;
 import com.umbrella.game.ubsdk.callback.UBLogoutCallback;
 import com.umbrella.game.ubsdk.callback.UBPayCallback;
+import com.umbrella.game.ubsdk.plugintype.pay.UBOrderInfo;
+import com.umbrella.game.ubsdk.plugintype.user.UBUserInfo;
 import com.umbrella.game.ubsdk.utils.UBLogUtil;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * Created by Joshua on 2018-02-12.
