@@ -1,9 +1,9 @@
 package com.umbrella.plugin.storebridge;
 
 import com.umbrella.game.ubsdk.UBSDK;
-import com.umbrella.game.ubsdk.bean.UBUserInfo;
 import com.umbrella.game.ubsdk.callback.UBInitCallback;
 import com.umbrella.game.ubsdk.callback.UBSwitchAccountCallback;
+import com.umbrella.game.ubsdk.plugintype.user.UBUserInfo;
 import com.umbrella.game.ubsdk.utils.UBLogUtil;
 import com.unity3d.player.UnityPlayerActivity;
 
@@ -23,6 +23,7 @@ public class UmbrellaActivity extends UnityPlayerActivity{
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        UBLogUtil.logI(TAG,"onCreate");
 //      step1 :setListener
         setListener();
 //      step2:init
@@ -68,60 +69,70 @@ public class UmbrellaActivity extends UnityPlayerActivity{
     @Override
     protected void onStart() {
         super.onStart();
+        UBLogUtil.logI(TAG,"onStart");
         UBSDK.getInstance().onStart();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
+        UBLogUtil.logI(TAG,"onRestart");
         UBSDK.getInstance().onRestart();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        UBLogUtil.logI(TAG,"onResume");
         UBSDK.getInstance().onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        UBLogUtil.logI(TAG,"onPause");
         UBSDK.getInstance().onPause();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        UBLogUtil.logI(TAG,"onStop");
         UBSDK.getInstance().onStop();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        UBLogUtil.logI(TAG,"onDestroy");
         UBSDK.getInstance().onDestroy();
     }
 
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
+        UBLogUtil.logI(TAG,"onBackPressed");
         UBSDK.getInstance().onBackPressed();
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        UBLogUtil.logI(TAG,"onNewIntent");
         UBSDK.getInstance().onNewIntent(intent);
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+        UBLogUtil.logI(TAG,"onConfigurationChanged");
         UBSDK.getInstance().onConfigurationChanged(newConfig);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        UBLogUtil.logI(TAG,"onActivityResult");
         UBSDK.getInstance().onActivityResult(requestCode,resultCode,data);
     }
 

@@ -1,18 +1,17 @@
 package com.umbrella.plugin.storebridge;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.umbrella.game.ubsdk.UBSDK;
-import com.umbrella.game.ubsdk.bean.UBOrderInfo;
-import com.umbrella.game.ubsdk.bean.UBRoleInfo;
-import com.umbrella.game.ubsdk.bean.UBUserInfo;
 import com.umbrella.game.ubsdk.callback.UBExitCallback;
 import com.umbrella.game.ubsdk.callback.UBGamePauseCallback;
 import com.umbrella.game.ubsdk.callback.UBLoginCallback;
 import com.umbrella.game.ubsdk.callback.UBLogoutCallback;
 import com.umbrella.game.ubsdk.callback.UBPayCallback;
+import com.umbrella.game.ubsdk.plugintype.pay.UBOrderInfo;
+import com.umbrella.game.ubsdk.plugintype.user.UBUserInfo;
 import com.umbrella.game.ubsdk.utils.UBLogUtil;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * Created by Joshua on 2018-02-12.
@@ -21,7 +20,7 @@ public class Bridge {
 	private String TAG= "Umbrella";
 
 	public void login(final Callback onResult) {
-		UBLogUtil.logI(TAG, "login() called");
+		UBLogUtil.logI(TAG, "login()");
 		UBSDK.getInstance().login(new UBLoginCallback()
 		{
 			@Override
@@ -99,6 +98,7 @@ public class Bridge {
 
 
 	public void gamePause(final Callback onResult){
+		UBLogUtil.logI(TAG, "gamePause()");
 		UBSDK.getInstance().gamePause(new UBGamePauseCallback() {
 			@Override
 			public void onGamePause() {
@@ -117,6 +117,7 @@ public class Bridge {
 	}
 
 	public void logout(final Callback onResult) {
+		UBLogUtil.logI(TAG, "logout()");
 		UBSDK.getInstance().logout(new UBLogoutCallback()
 		{
 			@Override
@@ -151,6 +152,7 @@ public class Bridge {
 	 * @param onResult
 	 */
 	public void doPurchase(String cpOrderId, String goodsID, String goodsName, String goodsDesc, int goodsCount, double cost, String extra, String callbackUrl, final Callback onResult) {
+		UBLogUtil.logI(TAG, "doPurchase()");
 //		If there is no role stand-alone game,set null
 //		UBRoleInfo roleInfo = new UBRoleInfo();
 
@@ -238,6 +240,7 @@ public class Bridge {
 	 * @param roleType
 	 */
 	public void setGameDataInfo(int roleType) {
+		UBLogUtil.logI(TAG, "setGameDataInfo()");
 		throw new UnsupportedOperationException();
 
 //		If there is no role stand-alone game,set null
@@ -257,5 +260,13 @@ public class Bridge {
 		UBSDK.getInstance().setGameDataInfo(null, roleType);
 		*/
 	}
-
+	
+	/**
+	 * Get the name of the activation store
+	 * @return
+	 */
+	public String getStoreName(){
+		UBLogUtil.logI(TAG, "getStoreName()");
+		return UBSDK.getInstance().getPlatformName();
+	}
 }
