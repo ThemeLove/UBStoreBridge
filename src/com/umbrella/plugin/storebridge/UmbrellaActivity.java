@@ -10,6 +10,8 @@ import com.unity3d.player.UnityPlayerActivity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 /**
  * author:qingshanliao
@@ -23,7 +25,8 @@ public class UmbrellaActivity extends UnityPlayerActivity{
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        UBLogUtil.logI(TAG,"onCreate");
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //      step1 :setListener
         setListener();
 //      step2:init
