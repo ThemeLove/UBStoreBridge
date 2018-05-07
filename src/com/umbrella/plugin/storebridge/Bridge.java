@@ -151,12 +151,12 @@ public class Bridge {
 	 * @param callbackUrl
 	 * @param onResult
 	 */
-	public void doPurchase(String cpOrderId, String goodsID, String goodsName, String goodsDesc, int goodsCount, double cost, String extra, String callbackUrl, final Callback onResult) {
-		UBLogUtil.logI(TAG, "doPurchase()");
+	public void doPurchase(int payType,String cpOrderId, String goodsID, String goodsName, String goodsDesc, int goodsCount, double cost, String extra, String callbackUrl, final Callback onResult) {
 //		If there is no role stand-alone game,set null
 //		UBRoleInfo roleInfo = new UBRoleInfo();
-
+		
 		UBOrderInfo orderInfo = new UBOrderInfo();
+		orderInfo.setPayType(payType);
 		orderInfo.setCpOrderID(cpOrderId);
 		orderInfo.setGoodsID(goodsID); //goodsId
 		orderInfo.setGoodsName(goodsName);// goodsName
