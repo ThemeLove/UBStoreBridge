@@ -88,10 +88,10 @@ public class UmbrellaActivity extends UnityPlayerActivity{
 				case ADType.AD_TYPE_BANNER:
 					UBLogUtil.logI(TAG+"----->UBAD----->onClick banner AD");
 					break;
-				case ADType.AD_TYPE_FULLSCREEN:
+				case ADType.AD_TYPE_INTERSTITIAL:
 					UBLogUtil.logI(TAG+"----->UBAD----->onClick fullscreen AD");
 					break;
-				case ADType.AD_TYPE_REWARDEDVIDEO:
+				case ADType.AD_TYPE_REWARDVIDEO:
 					UBLogUtil.logI(TAG+"----->UBAD----->onClick rewardVideo AD");
 					break;
 				case ADType.AD_TYPE_SPLASH:
@@ -109,10 +109,10 @@ public class UmbrellaActivity extends UnityPlayerActivity{
 				case ADType.AD_TYPE_BANNER:
 					UBLogUtil.logI(TAG+"----->UBAD----->onComplete banner AD");
 					break;
-				case ADType.AD_TYPE_FULLSCREEN:
+				case ADType.AD_TYPE_INTERSTITIAL:
 					UBLogUtil.logI(TAG+"----->UBAD----->onComplete fullscreen AD");
 					break;
-				case ADType.AD_TYPE_REWARDEDVIDEO:
+				case ADType.AD_TYPE_REWARDVIDEO:
 					UBLogUtil.logI(TAG+"----->UBAD----->onComplete rewardVideo AD");
 					break;
 				case ADType.AD_TYPE_SPLASH:
@@ -130,10 +130,10 @@ public class UmbrellaActivity extends UnityPlayerActivity{
 				case ADType.AD_TYPE_BANNER:
 					UBLogUtil.logI(TAG+"----->UBAD----->onShow banner AD");
 					break;
-				case ADType.AD_TYPE_FULLSCREEN:
+				case ADType.AD_TYPE_INTERSTITIAL:
 					UBLogUtil.logI(TAG+"----->UBAD----->onShow fullscreen AD");
 					break;
-				case ADType.AD_TYPE_REWARDEDVIDEO:
+				case ADType.AD_TYPE_REWARDVIDEO:
 					UBLogUtil.logI(TAG+"----->UBAD----->onShow rewardVideo AD");
 					break;
 				case ADType.AD_TYPE_SPLASH:
@@ -151,10 +151,10 @@ public class UmbrellaActivity extends UnityPlayerActivity{
 				case ADType.AD_TYPE_BANNER:
 					UBLogUtil.logI(TAG+"----->UBAD----->onClosed banner AD");
 					break;
-				case ADType.AD_TYPE_FULLSCREEN:
+				case ADType.AD_TYPE_INTERSTITIAL:
 					UBLogUtil.logI(TAG+"----->UBAD----->onClosed fullscreen AD");
 					break;
-				case ADType.AD_TYPE_REWARDEDVIDEO:
+				case ADType.AD_TYPE_REWARDVIDEO:
 					UBLogUtil.logI(TAG+"----->UBAD----->onClosed rewardVideo AD");
 					break;
 				case ADType.AD_TYPE_SPLASH:
@@ -172,10 +172,10 @@ public class UmbrellaActivity extends UnityPlayerActivity{
 				case ADType.AD_TYPE_BANNER:
 					UBLogUtil.logI(TAG+"----->UBAD----->onFailed banner AD");
 					break;
-				case ADType.AD_TYPE_FULLSCREEN:
+				case ADType.AD_TYPE_INTERSTITIAL:
 					UBLogUtil.logI(TAG+"----->UBAD----->onFailed fullscreen AD");
 					break;
-				case ADType.AD_TYPE_REWARDEDVIDEO:
+				case ADType.AD_TYPE_REWARDVIDEO:
 					UBLogUtil.logI(TAG+"----->UBAD----->onFailed rewardVideo AD");
 					break;
 				case ADType.AD_TYPE_SPLASH:
