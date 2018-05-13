@@ -26,16 +26,6 @@ public class ADBridge {
 	private UBADCallback mUBADCallback=new UBADCallback(){
 
 		@Override
-		public void onInit(boolean isInitSuccess, String msg) {
-			UBLogUtil.logI(TAG+"----->UBAD----->onInit");
-			if (isInitSuccess) {
-				UBLogUtil.logI(TAG+"----->UBAD----->init success!");
-			}else{
-				UBLogUtil.logI(TAG+"----->UBAD----->init fail!");
-			}
-		}
-
-		@Override
 		public void onClick(int adType, String msg) {
 			UBLogUtil.logI(TAG+"----->UBAD----->onClick");
 			switch (adType) {
