@@ -24,9 +24,9 @@ public class UmbrellaActivity extends UnityPlayerActivity{
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
+    	getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    	requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //      step1 :setSDKListener
         setSDKListener();
 //      step2:init

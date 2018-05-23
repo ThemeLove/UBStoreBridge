@@ -19,8 +19,12 @@ import com.umbrella.game.ubsdk.utils.UBLogUtil;
 public class Bridge {
 	private String TAG= "Umbrella";
 
+	public String getStoreName() {
+		return UBSDK.getInstance().getPlatformName();
+	}
+
 	public void login(final Callback onResult) {
-		UBLogUtil.logI(TAG, "login()");
+		UBLogUtil.logI(TAG, "login() called");
 		UBSDK.getInstance().login(new UBLoginCallback()
 		{
 			@Override
@@ -30,13 +34,8 @@ public class Bridge {
 //				TODO
 				String loginSuccessStr="login success:" + "\n\r" + "UserID:  " + ubUserInfo.getUid() + "\n\r" + "UserName:  "
 					                       + ubUserInfo.getUserName() + "\n\r" + "Token:  " + ubUserInfo.getToken() + "\n\r"+"extra:" + ubUserInfo.getExtra();
+
 				UBLogUtil.logI(TAG,loginSuccessStr);
-
-				int platfromId = UBSDK.getInstance().getPlatformID();
-				int subPlatformId = UBSDK.getInstance().getSubPlatformID();
-				UBLogUtil.logI(TAG,"platformId : " + platfromId);
-				UBLogUtil.logI(TAG,"subPlatformId : " + subPlatformId);
-
 				onResult.Activate(1, loginSuccessStr);
 			}
 
@@ -98,7 +97,6 @@ public class Bridge {
 
 
 	public void gamePause(final Callback onResult){
-		UBLogUtil.logI(TAG, "gamePause()");
 		UBSDK.getInstance().gamePause(new UBGamePauseCallback() {
 			@Override
 			public void onGamePause() {
@@ -117,7 +115,6 @@ public class Bridge {
 	}
 
 	public void logout(final Callback onResult) {
-		UBLogUtil.logI(TAG, "logout()");
 		UBSDK.getInstance().logout(new UBLogoutCallback()
 		{
 			@Override
@@ -139,24 +136,20 @@ public class Bridge {
 		});
 	}
 
-	/**
-	 * doPurchase
-	 * @param cpOrderId
-	 * @param goodsID    unique
-	 * @param goodsName
-	 * @param goodsDesc
-	 * @param goodsCount
-	 * @param cost
-	 * @param extra
-	 * @param callbackUrl
-	 * @param onResult
-	 */
-	public void doPurchase(int payType,String cpOrderId, String goodsID, String goodsName, String goodsDesc, int goodsCount, double cost, String extra, String callbackUrl, final Callback onResult) {
+	public void doPurchase(String goodsID, String cpOrderId, String extra, final Callback onResult) {
+		UBOrderInfo orderInfo= new UBOrderInfo();
+		orderInfo.setCpOrderID(cpOrderId);
+		orderInfo.setGoodsID(goodsID); //goodsId
+		orderInfo.setExtrasParams(extra); // Additional expansion parameters
+
+		doPurchase(orderInfo, onResult);
+	}
+
+	public void doPurchase_old(String cpOrderId, String goodsID, String goodsName, String goodsDesc, int goodsCount, double cost, String extra, String callbackUrl, final Callback onResult) {
 //		If there is no role stand-alone game,set null
 //		UBRoleInfo roleInfo = new UBRoleInfo();
-		
+
 		UBOrderInfo orderInfo = new UBOrderInfo();
-		orderInfo.setPayType(payType);
 		orderInfo.setCpOrderID(cpOrderId);
 		orderInfo.setGoodsID(goodsID); //goodsId
 		orderInfo.setGoodsName(goodsName);// goodsName
@@ -165,6 +158,13 @@ public class Bridge {
 		orderInfo.setAmount(cost); // total cost
 		orderInfo.setExtrasParams(extra); // Additional expansion parameters
 		orderInfo.setCallbackUrl(callbackUrl);//callback url :Commonly used for server notifications
+
+		doPurchase(orderInfo, onResult);
+	}
+
+	public void doPurchase(UBOrderInfo orderInfo, final Callback onResult) {
+		//UBLogUtil.logI(TAG, "setting payType to 1, for no good reason.");
+		orderInfo.setPayType(1);
 
 		UBSDK.getInstance().pay(null,orderInfo, new UBPayCallback() {
 
@@ -240,7 +240,6 @@ public class Bridge {
 	 * @param roleType
 	 */
 	public void setGameDataInfo(int roleType) {
-		UBLogUtil.logI(TAG, "setGameDataInfo()");
 		throw new UnsupportedOperationException();
 
 //		If there is no role stand-alone game,set null
@@ -260,13 +259,5 @@ public class Bridge {
 		UBSDK.getInstance().setGameDataInfo(null, roleType);
 		*/
 	}
-	
-	/**
-	 * Get the name of the activation store
-	 * @return
-	 */
-	public String getStoreName(){
-		UBLogUtil.logI(TAG, "getStoreName()");
-		return UBSDK.getInstance().getPlatformName();
-	}
+
 }
