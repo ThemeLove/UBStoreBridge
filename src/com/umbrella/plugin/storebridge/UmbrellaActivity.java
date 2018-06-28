@@ -69,72 +69,77 @@ public class UmbrellaActivity extends UnityPlayerActivity{
 
     @Override
     protected void onStart() {
-        super.onStart();
         UBLogUtil.logI(TAG,"onStart");
         UBSDK.getInstance().onStart();
+        super.onStart();
     }
 
     @Override
     protected void onRestart() {
-        super.onRestart();
         UBLogUtil.logI(TAG,"onRestart");
         UBSDK.getInstance().onRestart();
+        super.onRestart();
     }
 
     @Override
     protected void onResume() {
-        super.onResume();
         UBLogUtil.logI(TAG,"onResume");
         UBSDK.getInstance().onResume();
+        super.onResume();
     }
 
     @Override
     protected void onPause() {
-        super.onPause();
-        UBLogUtil.logI(TAG,"onPause");
+        UBLogUtil.logI(TAG+"----->onPause");
         UBSDK.getInstance().onPause();
+        super.onPause();
     }
 
     @Override
     protected void onStop() {
-        super.onStop();
-        UBLogUtil.logI(TAG,"onStop");
+        UBLogUtil.logI(TAG+"----->onStop");
         UBSDK.getInstance().onStop();
+        super.onStop();
     }
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
-        UBLogUtil.logI(TAG,"onDestroy");
+        UBLogUtil.logI(TAG+"----->onDestroy");
         UBSDK.getInstance().onDestroy();
+        super.onDestroy();
     }
 
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        UBLogUtil.logI(TAG,"onBackPressed");
+        UBLogUtil.logI(TAG+"----->onBackPressed");
         UBSDK.getInstance().onBackPressed();
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-        UBLogUtil.logI(TAG,"onNewIntent");
+        UBLogUtil.logI(TAG+"----->onNewIntent");
         UBSDK.getInstance().onNewIntent(intent);
+        super.onNewIntent(intent);
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        UBLogUtil.logI(TAG,"onConfigurationChanged");
+        UBLogUtil.logI(TAG+"----->onConfigurationChanged");
         UBSDK.getInstance().onConfigurationChanged(newConfig);
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        UBLogUtil.logI(TAG,"onActivityResult");
+        UBLogUtil.logI(TAG+"----->onActivityResult");
         UBSDK.getInstance().onActivityResult(requestCode,resultCode,data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    	UBLogUtil.logI(TAG+"----->onRequestPermissionsResult");
+    	super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 }
